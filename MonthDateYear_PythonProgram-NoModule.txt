@@ -1,0 +1,198 @@
+
+#===================================================================================================================================================================#
+
+dateMonth = int(input("Enter your birth month number: "))
+dateDay   = int(input("Enter your birth day number: "))
+dateYear  = int(input("Enter your year of birth: "))
+
+#===================================================================================================================================================================#
+
+month = ["null", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+monthsA = ["null", "January", "March", "May", "July", "August", "October", "December"]
+monthsB = ["null", "April", "June", "September", "November"] 
+monthsC = ["null", "February"]
+
+#===================================================================================================================================================================#
+zodiacSign          = ["Null", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
+
+zodiacAries         = ["March", 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacTaurus        = ["April", 20 ,21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+zodiacGemini        = ["May", 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacCancer        = ["June", 22, 23, 24, 25, 26, 27, 28, 29, 30]
+zodiacLeo           = ["July", 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacVirgo         = ["August", 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacLibra         = ["September", 23, 24, 25, 26, 27, 28, 29, 30]
+zodiacScorpio       = ["October", 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacSagittarius   = ["November", 22, 23, 24, 25, 26, 27, 28, 29, 30]
+zodiacCapricorn     = ["December",  22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacAquarius      = ["January", 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+zodiacPisces        = ["February", 19, 20 ,21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+zodiacAriesA         = ["April", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+zodiacTaurusA        = ["May", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+zodiacGeminiA        = ["June", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
+zodiacCancerA        = ["July", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+zodiacLeoA           = ["August", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
+zodiacVirgoA         = ["September", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+zodiacLibraA         = ["October", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+zodiacScorpioA       = ["November", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+zodiacSagittariusA   = ["December", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+zodiacCapricornA     = ["January", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+zodiacAquariusA      = ["February", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+zodiacPiscesA        = ["March", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+#===================================================================================================================================================================#
+weekDay = ["Null", "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+def dow(dateYear,dateMonth,dateDay):
+    m, q = dateMonth, dateDay
+    if m == 1:
+        m = 13
+        dateYear -= 1
+    elif m == 2:
+        m = 14
+        dateYear -= 1
+    K = dateYear % 100    
+    J = dateYear // 100
+    f = (q + int(13*(m + 1)/5.0) + K + int(K/4.0))
+    fg = f + int(J/4.0) - 2 * J
+    fj = f + 5 - J
+    if dateYear > 1582:
+        h = fg % 7
+    else:
+        h = fj % 7
+    if h == 0:
+        h = 7
+    return h
+#===================================================================================================================================================================#
+if ((month[dateMonth] in zodiacAries) and (dateDay in zodiacAries)) == True:
+    zodiac = 1
+    
+elif ((month[dateMonth] in zodiacAriesA) and (dateDay in zodiacAriesA)) == True:
+    zodiac = 1
+    
+elif ((month[dateMonth] in zodiacTaurus) and (dateDay in zodiacTaurus)) == True:
+    zodiac = 2
+
+elif ((month[dateMonth] in zodiacTaurusA) and (dateDay in zodiacTaurusA)) == True:
+    zodiac = 2
+    
+elif ((month[dateMonth] in zodiacGemini) and (dateDay in zodiacGemini)) == True:
+    zodiac = 3
+    
+elif ((month[dateMonth] in zodiacGeminiA) and (dateDay in zodiacGeminiA)) == True:
+    zodiac = 3
+    
+elif ((month[dateMonth] in zodiacCancer) and (dateDay in zodiacCancer)) == True:
+    zodiac = 4
+
+elif ((month[dateMonth] in zodiacCancerA) and (dateDay in zodiacCancerA)) == True:
+    zodiac = 4
+    
+elif ((month[dateMonth] in zodiacLeo) and (dateDay in zodiacLeo)) == True:
+    zodiac = 5
+
+elif ((month[dateMonth] in zodiacLeoA) and (dateDay in zodiacLeoA)) == True:
+    zodiac = 5
+    
+elif ((month[dateMonth] in zodiacVirgo) and (dateDay in zodiacVirgo)) == True:
+    zodiac = 6
+    
+elif ((month[dateMonth] in zodiacVirgoA) and (dateDay in zodiacVirgoA)) == True:
+    zodiac = 6
+    
+elif ((month[dateMonth] in zodiacLibra) and (dateDay in zodiacLibra)) == True:
+    zodiac = 7
+    
+elif ((month[dateMonth] in zodiacLibraA) and (dateDay in zodiacLibraA)) == True:
+    zodiac = 7
+    
+elif ((month[dateMonth] in zodiacScorpio) and (dateDay in zodiacScorpio)) == True:
+    zodiac = 8
+    
+elif ((month[dateMonth] in zodiacScorpioA) and (dateDay in zodiacScorpioA)) == True:
+    zodiac = 8
+    
+elif ((month[dateMonth] in zodiacSagittarius) and (dateDay in zodiacSagittarius)) == True:
+    zodiac = 9
+    
+elif ((month[dateMonth] in zodiacSagittariusA) and (dateDay in zodiacSagittariusA)) == True:
+    zodiac = 9
+    
+elif ((month[dateMonth] in zodiacCapricorn) and (dateDay in zodiacCapricorn)) == True:
+    zodiac = 10
+
+elif ((month[dateMonth] in zodiacCapricornA) and (dateDay in zodiacCapricornA)) == True:
+    zodiac = 10
+    
+elif ((month[dateMonth] in zodiacAquarius) and (dateDay in zodiacAquarius)) == True:
+    zodiac = 11
+
+elif ((month[dateMonth] in zodiacAquariusA) and (dateDay in zodiacAquariusA)) == True:
+    zodiac = 11
+    
+elif ((month[dateMonth] in zodiacPisces) and (dateDay in zodiacPisces)) == True:
+    zodiac = 12
+
+elif ((month[dateMonth] in zodiacPiscesA) and (dateDay in zodiacPiscesA)) == True:
+    zodiac = 12
+    
+else:
+    zodiac = 0
+
+
+#===================================================================================================================================================================#
+    
+if month[dateMonth] in monthsA:
+    day = list(range(0,32))
+    if dateDay in day:
+        print("Month: ", month[dateMonth])
+        print("Day: ", day[dateDay], weekDay[dow(dateYear,dateMonth,dateDay)])
+        print("Year: ", dateYear)
+        print(zodiacSign[zodiac])
+    else:
+        print("Invalid input of data, Try again.")
+
+elif month[dateMonth] in monthsB:
+    day = list(range(0,31))
+    if dateDay in day:
+        print("Month: ", month[dateMonth])
+        print("Day: ", day[dateDay], weekDay[dow(dateYear,dateMonth,dateDay)])
+        print("Year: ", dateYear)
+        print(zodiacSign[zodiac])
+    else:
+        print("Invalid input of data, Try again.")
+
+elif (month[dateMonth] in monthsC) and ((dateYear % 100 == 0) and (dateYear % 400 == 0)) == True:
+    day = list(range(0,30))
+    if dateDay in day:
+        print("Month: ", month[dateMonth])
+        print("Day: ", day[dateDay], weekDay[dow(dateYear,dateMonth,dateDay)])
+        print("Year: ", dateYear, "A Leap Year!")
+        print(zodiacSign[zodiac])
+    else:
+        print("Invalid input of data, Try again.")
+
+elif (month[dateMonth] in monthsC) and ((dateYear % 100 != 0) and (dateYear % 4 == 0)) == True:
+    day = list(range(0,30))
+    if dateDay in day:
+        print("Month: ", month[dateMonth])
+        print("Day: ", day[dateDay], weekDay[dow(dateYear,dateMonth,dateDay)])
+        print("Year: ", dateYear, "A Leap Year!")
+        print(zodiacSign[zodiac])
+    else:
+        print("Invalid input of data, Try again.")
+
+else:
+    day = list(range(0,29))
+    if dateDay in day:
+        print("Month: ", month[dateMonth])
+        print("Day: ", day[dateDay], weekDay[dow(dateYear,dateMonth,dateDay)])
+        print("Year: ", dateYear)
+        print(zodiacSign[zodiac])
+    else:
+        print("Invalid input of data, Try again.")
+#===================================================================================================================================================================#
+
+
+
+
