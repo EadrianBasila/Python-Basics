@@ -1,0 +1,141 @@
+
+#==============================================================================#
+import os 
+from os import system, name 
+from time import sleep 
+def clear(): 
+
+	# for windows 
+	if name == 'nt': 
+		_ = system('cls') 
+
+	# for mac and linux(here, os.name is 'posix') 
+	else: 
+		_ = system('clear') 
+	
+from datetime import datetime
+# datetime object containing current date and time
+now = datetime.now()
+
+# dd/mm/YY H:M:S
+timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+
+#==============================================================================#  
+moneyBalance = 0
+withdrawHistory = []
+depositHistory = []
+withdrawTimes = []
+depositTimes = []
+#==============================================================================# 
+while True:
+    
+    print("==Welcome to ChingChong's Automated Teller Machine!==")
+    print("What do you want to do? /n")
+    print("[1] Withdraw")
+    print("[2] Deposit")
+    print("[3] Check Balance")
+    print("[4] Review ATM History")
+    print("[5] Exit")
+    
+    chooseOption = int(input("Please enter your choice: "))
+    
+    if (chooseOption == 1):
+        print("="*50)
+        print("You cho0se to withdraw.")
+        sleep(2) 
+        print("Preparing ATM..")
+        print("="*50)
+        sleep(4) 
+        clear()
+        print("="*50)
+        chooseWithdraw = int(input("Please enter the amount of money you choose to withdraw: "))
+        print("="*50)
+        withdrawHistory.append(chooseWithdraw)
+        withdrawTimes.append(timestamp)
+        if (chooseWithdraw % 100 == 0) == True:
+            if (moneyBalance > chooseWithdraw) == True:
+                moneyBalance = moneyBalance - chooseWithdraw
+                print("="*50)
+                print("You have succesfully withdrawed", chooseWithdraw)
+                print("="*50)
+                
+            else:
+                print("="*50)
+                print("Withdraw unsuccessful, Please check your balance.")
+                print("="*50)            
+        else:
+            print("="*50)
+            print("Withdraw unsuccessful, the amount should be in hundreds to continue")
+            print("="*50)
+        sleep(4) 
+        clear()
+        
+    elif (chooseOption == 2):
+        print("="*50)
+        print("You choose to Deposit.")
+        sleep(2) 
+        print("Preparing ATM..")
+        print("="*50)
+        sleep(4) 
+        clear()
+        print("="*50)
+        chooseDeposit = float(input("Please enter the amount of money you choose to Deposit: "))
+        print("="*50)
+        depositHistory.append(chooseDeposit)
+        depositTimes.append(timestamp)
+        if (chooseDeposit > 0) == True:
+            moneyBalance = moneyBalance + chooseDeposit
+            print("="*50)
+            print("You have succesfully deposited", chooseDeposit)
+            print("="*50)      
+        else:
+            print("="*50)
+            print("Deposit unsuccessful, the amount should be greater than 0 to continue")
+            print("="*50)
+        sleep(4) 
+        clear()
+        
+    elif (chooseOption == 3):
+        print("="*50)
+        print("You choose to check your balance.")
+        sleep(2) 
+        print("Preparing ATM..")
+        print("="*50)
+        sleep(4) 
+        clear()
+    
+        print("="*50)
+        print("Your balance is", moneyBalance)
+        print("="*50)
+        sleep(5)
+        clear()
+    elif (chooseOption == 4):
+        print("You choose to review your ATM's History.")
+        sleep(2) 
+        print("="*50)
+        print("Your deposit history: ")
+        print(depositHistory)
+        print(depositTimes)
+        sleep(2)
+        print("Your withdraw history: ")
+        print(withdrawHistory)
+        print(withdrawTimes)
+        print("="*50)
+        sleep(5)
+        clear()
+    
+    elif (chooseOption == 5):
+        print("You choose to exit ChingChong's ATM.")
+        sleep(2) 
+        print("Shutting down ATM..")
+        sleep(5)
+        print("Goodbye!")
+        sleep(1)
+        clear()
+        break
+    
+    else:
+        print("Invalid Entry, Try Again!")
+        sleep(2)
+        clear()    
+print(":)")
