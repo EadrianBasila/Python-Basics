@@ -1,10 +1,3 @@
-##################################
-#       Created by DINORADO      #
-#                                #
-#         Basila, Eadrian        #
-# Pineda, Stephano Denniel M.    #
-#         Ugay, Jay Mark         #
-##################################
 
 import re
 
