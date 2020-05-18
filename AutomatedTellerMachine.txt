@@ -138,4 +138,5 @@ while True:
         print("Invalid Entry, Try Again!")
         sleep(2)
         clear()    
+	
 print(":)")
